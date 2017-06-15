@@ -19,6 +19,10 @@ module Less
         data
       end
 
+      def self.call(*input)
+        raise NotImplementedError.new("Just for removing warning. To support Sprockets '>= 4', implement this method please.")
+      end
+
       def depend_on(scope, data, base=File.dirname(scope.logical_path))
         import_paths = data.scan(IMPORT_SCANNER).flatten.compact.uniq
         import_paths.each do |path|
